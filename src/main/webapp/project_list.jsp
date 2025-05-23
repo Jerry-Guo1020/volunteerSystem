@@ -23,9 +23,14 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
         .project-card h5 {
             color: #333;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         .project-meta {
             font-size: 14px;
@@ -45,7 +50,14 @@
             padding: 20px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             margin-bottom: 40px;
+            transition: all 0.3s ease;
+
         }
+
+        .activity-types:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
         .activity-types h5 {
             color: #f44336;
             font-weight: bold;
@@ -75,7 +87,7 @@
 <body>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">志愿服务项目</h2>
+        <h2 class="mb-0 ">志愿服务项目</h2>
         <a href="add_project.jsp" class="btn btn-danger">发布志愿服务活动</a>
     </div>
 

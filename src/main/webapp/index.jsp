@@ -1,128 +1,303 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>志愿者服务平台</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* 全局样式优化 */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
         }
-        
+
         /* 卡片样式优化 */
         .feature-card {
             border: 2px solid #e0e0e0;
             border-radius: 18px;
             padding: 28px 20px;
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            margin: 15px auto;
-            height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            transition: all 0.3s ease;
+            height: 100%;
         }
-        
+
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            border-color: #7ed957;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: #28a745;
         }
-        
+
+        /* 图标样式 */
         .feature-icon {
-            font-size: 3rem;
-            color: #0d6efd;
-            margin-bottom: 1.2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
-        
-        /* 积分榜样式优化 */
-        .leaderboard {
-            background: #fffbe7;
-            border-radius: 12px;
-            padding: 1.8rem;
-            margin-top: 2rem;
-        }
-        
-        .leaderboard-animated {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            border: 2px solid #f7e3a3;
-            border-radius: 18px;
-            animation: leaderboard-fade-in 0.7s ease-out;
-        }
-        
-        .leaderboard-animated:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(243,156,18,0.18);
-            border-color: #f39c12;
-        }
-        
-        @keyframes leaderboard-fade-in {
-            from { opacity: 0; transform: translateY(32px); }
-            to { opacity: 1; transform: none; }
-        }
-        
+
         /* 轮播图样式优化 */
+        .carousel-item {
+            height: 400px;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+
         .carousel-caption {
-            background: rgba(0,0,0,0.5);
-            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
             padding: 15px;
-            max-width: 80%;
-            margin: 0 auto;
         }
-        
-        /* 导航栏样式优化 */
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        /* 页脚样式优化 */
+
+        /* 底部样式 */
         .footer {
             background-color: #343a40;
-            padding: 20px 0;
-            margin-top: 50px;
+            color: #fff;
+            padding: 40px 0;
         }
-        
-        .footer .text-muted {
+
+        .footer a {
             color: #adb5bd !important;
         }
-        
+
         /* 按钮样式优化 */
         .btn-success {
             background-color: #28a745;
             border-color: #28a745;
             transition: all 0.3s ease;
         }
-        
+
         .btn-success:hover {
             background-color: #218838;
             border-color: #1e7e34;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 用户下拉菜单样式 */
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #28a745;
+        }
+
+        .dropdown-item.text-danger:hover {
+            background-color: #fff5f5;
+            color: #dc3545;
+        }
+
+        .user-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #28a745;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        /* Recommended Activities Header Style */
+        .recommended-activities-header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            /* Example gradient */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: white;
+        }
+
+        .recommended-activities-header h3 {
+            color: white;
+            /* Ensure title is white */
+        }
+
+        .recommended-activities-header a {
+            color: white !important;
+            /* Ensure link is white */
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .recommended-activities-header a:hover {
+            opacity: 1;
+        }
+
+        /* Activity Card Style */
+        .activity-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Activity Icon Container Style */
+        .activity-icon-container {
+            width: 60px;
+            /* Adjust size as needed */
+            height: 60px;
+            /* Adjust size as needed */
+            border-radius: 8px;
+            /* Slightly rounded corners */
+            background-color: #e9ecef;
+            /* Light background for icon area */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            flex-shrink: 0;
+            /* Prevent shrinking */
+        }
+
+        .activity-icon-container i {
+            color: #28a745;
+            /* Example icon color */
+            font-size: 1.8rem;
+            /* Adjust icon size */
+        }
+
+        .activity-category-label {
+            font-size: 0.7rem;
+            color: #6c757d;
+            margin-top: 3px;
+        }
+
+        /* Activity Details Style */
+        .activity-details h6 {
+            margin-bottom: 0.25rem !important;
+            /* Adjust spacing */
+        }
+
+        .activity-details p {
+            margin-bottom: 0.1rem !important;
+            /* Adjust spacing */
+            line-height: 1.3;
         }
     </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<%
+    // 获取当前登录用户
+    String username = (String) session.getAttribute("username");
+    boolean isLoggedIn = (username != null);
+
+    // 模拟从数据库获取推荐活动数据
+    // 在实际应用中，您需要调用后端服务来获取真实数据
+    List<Map<String, String>> recommendedActivities = new ArrayList<>();
+    // Dummy data mimicking the image content
+    Map<String, String> activity1 = new HashMap<>();
+    activity1.put("title", "博罗中学班主任文化节");
+    activity1.put("publisher", "博罗县博罗中学");
+    activity1.put("time", "2025/05/24 00:00 - 23:46");
+    activity1.put("category", "文艺文化");
+    activity1.put("icon", "fas fa-palette"); // Example icon
+
+    Map<String, String> activity2 = new HashMap<>();
+    activity2.put("title", "5.24招生志愿活动");
+    activity2.put("publisher", "乐昌市城关中学");
+    activity2.put("time", "2025/05/24 00:00 - 23:59");
+    activity2.put("category", "中学生志愿服务");
+    activity2.put("icon", "fas fa-graduation-cap"); // Example icon
+
+    Map<String, String> activity3 = new HashMap<>();
+    activity3.put("title", "金砂中学校园志愿");
+    activity3.put("publisher", "汕头市金砂中学");
+    activity3.put("time", "2025/05/24 00:00 - 05/25 00:00");
+    activity3.put("category", "公共服务");
+    activity3.put("icon", "fas fa-hand-holding-heart"); // Example icon
+
+    Map<String, String> activity4 = new HashMap<>();
+    activity4.put("title", "“青春志愿行,奉献新时代”5月24日志愿行");
+    activity4.put("publisher", "广交院青年志愿者行动指导中心");
+    activity4.put("time", "2025/05/24 00:00 - 05/25 23:59");
+    activity4.put("category", "ivism");
+    activity4.put("icon", "fas fa-flag"); // Example icon
+
+    recommendedActivities.add(activity1);
+    recommendedActivities.add(activity2);
+    recommendedActivities.add(activity3);
+    recommendedActivities.add(activity4);
+%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
         <a class="navbar-brand" href="#">
             <i class="fas fa-hands-helping me-2"></i>志愿者服务平台
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt me-1"></i>登录</a></li>
-                <li class="nav-item"><a class="nav-link" href="register.jsp"><i class="fas fa-user-plus me-1"></i>注册</a></li>
-                <li class="nav-item"><a class="nav-link" href="volunteer_center.jsp"><i class="fas fa-user-circle me-1"></i>个人中心</a></li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.jsp">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="project_list.jsp">志愿项目</a>
+                </li>
+                <% if (isLoggedIn) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="volunteer_center.jsp">个人中心</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="user-avatar">
+                            <%= username.substring(0, 1).toUpperCase() %>
+                        </div>
+                        <%= username %>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="volunteer_center.jsp"><i
+                                class="fas fa-user me-2"></i>个人资料</a></li>
+                        <li><a class="dropdown-item" href="project_list.jsp"><i
+                                class="fas fa-list-alt me-2"></i>我的项目</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="logout.jsp"><i
+                                class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                    </ul>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.jsp">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.jsp">注册</a>
+                </li>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -130,31 +305,55 @@
 
 <!-- 轮播图 -->
 <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+    </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" style="max-height:450px;object-fit:cover;" alt="志愿服务">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1200&q=80"
+                 class="d-block w-100" alt="志愿服务">
             <div class="carousel-caption d-none d-md-block">
-                <h4>让爱心点亮城市</h4>
-                <p>加入我们，让世界因你更美好！</p>
+                <h2>加入志愿者行列</h2>
+                <p>用爱心和行动，共建美好社会</p>
+                <a href="register.jsp" class="btn btn-success">立即加入</a>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" style="max-height:450px;object-fit:cover;" alt="志愿者活动">
+            <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=1200&q=80"
+                 class="d-block w-100" alt="社区服务">
             <div class="carousel-caption d-none d-md-block">
-                <h4>志愿服务，收获成长</h4>
-                <p>每一次付出都值得被铭记。</p>
+                <h2>社区服务项目</h2>
+                <p>从身边小事做起，温暖你我社区</p>
+                <a href="project_list.jsp" class="btn btn-success">查看项目</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1200&q=80"
+                 class="d-block w-100" alt="公益活动">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>公益活动招募</h2>
+                <p>汇聚点滴力量，成就非凡事业</p>
+                <a href="project_list.jsp" class="btn btn-success">我要报名</a>
             </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel"
+            data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel"
+            data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 
 <!-- 平台简介与特色 -->
 <div class="container mt-5">
@@ -167,7 +366,7 @@
             </a>
         </div>
     </div>
-    
+
     <div class="row justify-content-center mb-5">
         <div class="col-md-4 mb-4">
             <div class="feature-card text-center">
@@ -187,46 +386,60 @@
             <div class="feature-card text-center">
                 <div class="feature-icon">🤝</div>
                 <h5 class="mb-3">成长与交流</h5>
-                <p class="mb-0">结识志同道合的朋友，共同成长、共同进步。</p>
+                <p class="mb-0">结识志同道合的伙伴，共同成长进步。</p>
             </div>
         </div>
     </div>
-    
-    <!-- 积分榜 -->
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <div class="leaderboard leaderboard-animated shadow-sm">
-                <h4 class="mb-3"><span style="color:#f39c12;"><i class="fas fa-medal me-2"></i></span>积分榜</h4>
-                <table class="table table-striped">
-                    <thead class="table-light">
-                        <tr>
-                            <th>排名</th>
-                            <th>用户名</th>
-                            <th>积分</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>admin</td><td>100</td></tr>
-                        <tr><td>2</td><td>志愿者A</td><td>80</td></tr>
-                        <tr><td>3</td><td>志愿者B</td><td>65</td></tr>
-                        <tr><td>4</td><td>志愿者C</td><td>40</td></tr>
-                    </tbody>
-                </table>
-            </div>
+
+    <!-- Recommended Activities Section -->
+    <div class="recommended-activities-section mt-5">
+        <div class="recommended-activities-header d-flex justify-content-between align-items-center p-3">
+            <h3 class="mb-0 text-white">推荐活动</h3>
+            <a href="project_list.jsp" class="text-white text-decoration-none">更多活动 &raquo;</a>
+        </div>
+        <div class="row mt-3">
+            <% for (Map<String, String> activity : recommendedActivities) { %>
+                <div class="col-md-6 mb-4">
+                    <div class="activity-card d-flex align-items-center p-3">
+                        <div class="activity-icon-container text-center me-3">
+                            <i class="<%= activity.get("icon") %> fa-2x"></i>
+                            <div class="activity-category-label mt-1"><%= activity.get("category") %></div>
+                        </div>
+                        <div class="activity-details flex-grow-1">
+                            <h6 class="mb-1 fw-bold"><%= activity.get("title") %></h6>
+                            <p class="mb-1 text-muted small">发布组织: <%= activity.get("publisher") %></p>
+                            <p class="mb-0 text-muted small">开展时间: <%= activity.get("time") %></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
         </div>
     </div>
+
+
+    <!-- 关于我们部分 -->
+    <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-md-8 text-center">
+            <h2 class="fw-bold mb-3">关于我们</h2>
+            <p class="lead">志愿者服务平台致力于连接有爱心的志愿者与需要帮助的社区，共同建设美好社会。</p>
+        </div>
+    </div>
+
 </div>
 
-<footer class="footer text-white text-center">
+<!-- 底部信息 -->
+<footer class="footer mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <p class="mb-0">&copy; 2025 志愿者服务平台 | 联系方式：service@volunteer.com | 地址：北京市志愿路100号</p>
+            <div class="col text-center pt-3 ">
+                <p>© 2025 志愿者服务平台,为有所需要的人而服务！</p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
