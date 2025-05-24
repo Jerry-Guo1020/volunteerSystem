@@ -178,16 +178,20 @@
             <a class="nav-link active" href="volunteer_center.jsp">个人中心</a>
         </li>
         <li class="nav-item">
-            <%-- 消息通知页面链接，目前使用占位符 # --%>
+            <%-- 消息通知页面链接 --%>
             <a class="nav-link" href="messages.jsp">消息通知</a>
         </li>
         <li class="nav-item">
-            <%-- 服务记录页面链接，目前指向当前页面或可以考虑锚点链接 --%>
+            <%-- 服务记录页面链接 --%>
             <a class="nav-link" href="service_records.jsp">服务记录</a>
         </li>
         <li class="nav-item">
-            <%-- 收到评价页面链接，目前使用占位符 # --%>
-            <a class="nav-link" href="reviews.jsp.jsp">收到评价</a>
+            <%-- 收到评价页面链接 --%>
+            <a class="nav-link" href="reviews.jsp">收到评价</a>
+        </li>
+        <%-- 添加积分商城链接 --%>
+        <li class="nav-item">
+            <a class="nav-link" href="points_mall.jsp">积分商城</a>
         </li>
     </ul>
 

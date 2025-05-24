@@ -20,22 +20,8 @@
         <url-pattern>/login-servlet</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>AddProjectServlet</servlet-name>
-        <servlet-class>com.example.volunteersystem.AddProjectServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddProjectServlet</servlet-name>
-        <url-pattern>/add-project-servlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>SignupServlet</servlet-name>
-        <servlet-class>com.example.volunteersystem.SignupServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SignupServlet</servlet-name>
-        <url-pattern>/signup-servlet</url-pattern>
-    </servlet-mapping>
+
+
 
     <!-- 添加欢迎文件列表 -->
     <welcome-file-list>

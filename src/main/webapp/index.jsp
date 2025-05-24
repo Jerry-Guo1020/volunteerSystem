@@ -23,24 +23,26 @@
 
         /* 卡片样式优化 */
         .feature-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 18px;
-            padding: 28px 20px;
-            background: #fff;
+            border: 1px solid #d0d0d0; /* Slightly lighter border */
+            border-radius: 12px; /* Slightly smaller border radius */
+            padding: 25px 20px; /* Adjusted padding */
+            background: #ffffff; /* White background */
             transition: all 0.3s ease;
             height: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-color: #28a745;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+            border-color: #28a745; /* Green border on hover */
         }
 
         /* 图标样式 */
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 3rem; /* Slightly larger icon */
             margin-bottom: 1rem;
+            color: #007bff; /* Example color for icons */
         }
 
         /* 轮播图样式优化 */
@@ -121,36 +123,40 @@
 
         /* Recommended Activities Header Style */
         .recommended-activities-header {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            /* Example gradient */
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            background: linear-gradient(to right, #dc3545, #c82333); /* Red gradient */
+            border-top-left-radius: 10px; /* Adjusted radius */
+            border-top-right-radius: 10px; /* Adjusted radius */
             color: white;
+            padding: 15px 20px; /* Adjusted padding */
         }
 
         .recommended-activities-header h3 {
             color: white;
-            /* Ensure title is white */
+            font-size: 1.5rem; /* Adjusted font size */
         }
 
         .recommended-activities-header a {
             color: white !important;
-            /* Ensure link is white */
             opacity: 0.9;
             transition: opacity 0.2s ease;
+            font-size: 0.9rem; /* Adjusted font size */
         }
 
         .recommended-activities-header a:hover {
             opacity: 1;
+            text-decoration: underline !important; /* Underline on hover */
         }
 
         /* Activity Card Style */
         .activity-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            background: #fff;
+            border: 1px solid #d0d0d0; /* Slightly lighter border */
+            border-radius: 12px; /* Slightly smaller border radius */
+            padding: 25px 20px; /* Adjusted padding */
+            background: #ffffff; /* White background */
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+
         }
 
         .activity-card:hover {
@@ -160,34 +166,28 @@
 
         /* Activity Icon Container Style */
         .activity-icon-container {
-            width: 60px;
-            /* Adjust size as needed */
-            height: 60px;
-            /* Adjust size as needed */
-            border-radius: 8px;
-            /* Slightly rounded corners */
+            width: 50px; /* Adjusted size */
+            height: 50px; /* Adjusted size */
+            border-radius: 50%; /* Make it round */
             background-color: #e9ecef;
-            /* Light background for icon area */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 5px;
             flex-shrink: 0;
-            /* Prevent shrinking */
+            margin-right: 15px; /* Adjusted margin */
         }
 
         .activity-icon-container i {
             color: #28a745;
-            /* Example icon color */
-            font-size: 1.8rem;
-            /* Adjust icon size */
+            font-size: 1.5rem; /* Adjusted icon size */
         }
 
         .activity-category-label {
-            font-size: 0.7rem;
+            font-size: 0.6rem; /* Adjusted font size */
             color: #6c757d;
-            margin-top: 3px;
+            margin-top: 2px; /* Adjusted margin */
         }
 
         /* Activity Details Style */
@@ -246,6 +246,27 @@
     recommendedActivities.add(activity2);
     recommendedActivities.add(activity3);
     recommendedActivities.add(activity4);
+
+    // 模拟从数据库获取新闻数据
+    List<Map<String, String>> latestNews = new ArrayList<>();
+    Map<String, String> news1 = new HashMap<>();
+    news1.put("title", "平台用户突破10万，感谢你有你！");
+    news1.put("date", "2025-06-01");
+    news1.put("summary", "志愿者服务平台用户数量再创新高，感谢每一位VolunteerSystem贡献！");
+
+    Map<String, String> news2 = new HashMap<>();
+    news2.put("title", "夏季大型公益活动圆满成功");
+    news2.put("date", "2025-05-28");
+    news2.put("summary", "为期一个月的夏季公益活动顺利结束，志愿者们用汗水点亮城市。");
+
+    Map<String, String> news3 = new HashMap<>();
+    news3.put("title", "新功能上线：积分兑换商城");
+    news3.put("date", "2025-05-20");
+    news3.put("summary", "期待已久的积分兑换商城正式上线，快来用你的积分兑换心仪的礼品吧！");
+
+    latestNews.add(news1);
+    latestNews.add(news2);
+    latestNews.add(news3);
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
     <div class="container">
@@ -391,6 +412,39 @@
         </div>
     </div>
 
+ <!-- How to become a volunteer Section -->
+ <div class="how-to-volunteer-section mt-5">
+    <div class="recommended-activities-header d-flex justify-content-between align-items-center p-3">
+        <h3 class="mb-0 text-white">成为志愿者流程</h3>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon">✍️</div>
+                <h5 class="mb-3">第一步：注册账号</h5>
+                <p class="mb-0">访问注册页面，填写必要信息，创建您的志愿者账号。</p>
+                <a href="register.jsp" class="btn btn-outline-primary btn-sm mt-3">立即注册</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon">🔍</div>
+                <h5 class="mb-3">第二步：浏览项目</h5>
+                <p class="mb-0">在项目列表中查找您感兴趣的志愿服务。</p>
+                <a href="project_list.jsp" class="btn btn-outline-primary btn-sm mt-3">浏览项目</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card text-center">
+                <div class="feature-icon">✅</div>
+                <h5 class="mb-3">第三步：报名参与</h5>
+                <p class="mb-0">选择项目并提交报名申请，等待组织者审核。</p>
+                <a href="project_list.jsp" class="btn btn-outline-primary btn-sm mt-3">立即报名</a>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Recommended Activities Section -->
     <div class="recommended-activities-section mt-5">
         <div class="recommended-activities-header d-flex justify-content-between align-items-center p-3">
@@ -410,6 +464,26 @@
                             <p class="mb-1 text-muted small">发布组织: <%= activity.get("publisher") %></p>
                             <p class="mb-0 text-muted small">开展时间: <%= activity.get("time") %></p>
                         </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+
+    <!-- Latest News Section -->
+    <div class="latest-news-section mt-5">
+        <div class="recommended-activities-header d-flex justify-content-between align-items-center p-3">
+            <h3 class="mb-0 text-white">最新动态</h3>
+            <a href="#" class="text-white text-decoration-none">更多新闻 &raquo;</a>
+        </div>
+        <div class="row mt-3">
+            <% for (Map<String, String> news : latestNews) { %>
+                <div class="col-md-4 mb-4">
+                    <div class="activity-card p-3">
+                        <h6 class="mb-1 fw-bold"><%= news.get("title") %></h6>
+                        <p class="mb-1 text-muted small"><%= news.get("date") %></p>
+                        <p class="mb-0 text-muted small"><%= news.get("summary") %></p>
                     </div>
                 </div>
             <% } %>

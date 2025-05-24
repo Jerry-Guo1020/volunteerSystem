@@ -46,15 +46,35 @@
             border: none; /* 移除默认边框 */
             border-radius: 10px; /* 较小的圆角 */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 较小的阴影 */
-            margin-bottom: 30px; /* 卡片间距 */
+            margin-bottom: 20px; /* 调整卡片间距 */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* 添加过渡效果 */
+        }
+
+        .info-card:hover { /* 添加悬停效果 */
+            transform: translateY(-5px); /* 向上微移 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 增大阴影 */
         }
 
         .info-card .card-body, .content-card .card-body {
-            padding: 25px; /* 调整内边距 */
+            padding: 20px; /* 调整内边距 */
         }
 
-        .info-card h4 {
-            margin-bottom: 15px;
+        .info-card h5 {
+            margin-bottom: 10px; /* 调整标题下边距 */
+            color: #333; /* 调整标题颜色 */
+        }
+
+        .info-card p {
+            margin-bottom: 15px; /* 调整文本下边距 */
+            color: #555; /* 调整文本颜色 */
+        }
+
+        .info-card .badge {
+            font-size: 0.85em; /* 调整徽章字体大小 */
+        }
+
+        .info-card .text-muted {
+            font-size: 0.85em; /* 调整日期字体大小 */
         }
 
         .badge-success {
