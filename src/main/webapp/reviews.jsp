@@ -180,8 +180,38 @@
             <h5>收到的评价</h5>
         </div>
         <div class="card-body">
-            <p class="text-center text-muted">暂无收到的评价。</p>
-            <%-- 在这里添加收到评价的逻辑和显示 --%>
+            <!-- 示例评价卡片展示 -->
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">“志愿者小王工作非常认真！”</h5>
+                    <p class="card-text">在社区卫生宣传活动中，小王积极参与，服务态度好，深受居民好评。</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">来自：社区负责人</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-06-01</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">“服务热情，细致周到”</h5>
+                    <p class="card-text">志愿者小王在敬老院活动中表现突出，老人们都很喜欢他。</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">来自：敬老院管理员</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-05-28</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">“团队协作能力强”</h5>
+                    <p class="card-text">在大型志愿服务项目中，积极配合团队，顺利完成任务。</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">来自：项目负责人</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-05-15</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 结束示例评价卡片 -->
         </div>
     </div>
 

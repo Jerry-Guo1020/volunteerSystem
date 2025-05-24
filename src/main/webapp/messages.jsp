@@ -180,8 +180,38 @@
             <h5>消息通知</h5>
         </div>
         <div class="card-body">
-            <p class="text-center text-muted">暂无新消息。</p>
-            <%-- 在这里添加消息列表的逻辑和显示 --%>
+            <!-- 示例消息卡片展示 -->
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">活动报名成功通知</h5>
+                    <p class="card-text">您已成功报名“社区卫生宣传志愿服务”活动，请准时参加。</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">系统通知</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-06-02</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">项目负责人留言</h5>
+                    <p class="card-text">感谢您的积极参与，期待下次合作！</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">项目负责人</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-05-30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 info-card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">积分变动提醒</h5>
+                    <p class="card-text">您因参与志愿服务获得10积分，继续加油！</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge badge-success">系统通知</span>
+                        <span class="text-muted" style="font-size:0.95em;">2024-05-25</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 结束示例消息卡片 -->
         </div>
     </div>
 

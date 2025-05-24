@@ -2,13 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>发布志愿服务活动</title>
+    <title>发布志愿服务</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="bg-light">
 <div class="container mt-5">
-    <h2 class="mb-4">发布志愿服务活动</h2>
-    <form action="add-project-servlet" method="post" class="bg-white p-4 rounded shadow-sm">
+    <h2 class="mb-4">发布志愿服务</h2>
+
+    <%-- 显示来自 Servlet 的消息 --%>
+    <%
+        String message = (String) request.getAttribute("message");
+        if (message != null && !message.isEmpty()) {
+    %>
+        <div class="alert alert-danger" role="alert">
+            <%= message %>
+        </div>
+    <%
+        }
+    %>
+
+    <form action="<%= request.getContextPath() %>/add-project-servlet" method="post" class="bg-white p-4 rounded shadow-sm">
         <div class="mb-3">
             <label for="name" class="form-label">活动名称</label>
             <input type="text" class="form-control" id="name" name="name" required>
