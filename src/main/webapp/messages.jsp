@@ -1,23 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*,com.example.volunteersystem.JDBCUtil" %>
 <%
     String username = (String) session.getAttribute("username");
     if (username == null) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("../login.jsp"); // 注意路径调整
         return;
-    }
-    int points = 0;
-    String errorMsg = null;
-    try (Connection conn = JDBCUtil.getConnection();
-         PreparedStatement ps = conn.prepareStatement("SELECT points FROM user WHERE username=?")) {
-        ps.setString(1, username);
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                points = rs.getInt("points");
-            }
-        }
-    } catch (Exception e) {
-        errorMsg = "获取积分失败：" + e.getMessage();
     }
 %>
 <!DOCTYPE html>
@@ -25,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人中心 - 志愿者服务平台</title>
+    <title>消息通知 - 志愿者服务平台</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -56,14 +42,14 @@
         }
 
         /* 卡片样式优化 */
-        .info-card, .records-card {
+        .info-card, .content-card { /* content-card 用于其他页面内容 */
             border: none; /* 移除默认边框 */
             border-radius: 10px; /* 较小的圆角 */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 较小的阴影 */
             margin-bottom: 30px; /* 卡片间距 */
         }
 
-        .info-card .card-body, .records-card .card-body {
+        .info-card .card-body, .content-card .card-body {
             padding: 25px; /* 调整内边距 */
         }
 
@@ -75,7 +61,7 @@
             background-color: #28a745 !important; /* Bootstrap success color */
         }
 
-        /* 表格样式 */
+        /* 表格样式 (保留，因为其他页面会用) */
         .table {
             margin-bottom: 0; /* 移除表格底部默认间距 */
         }
@@ -170,93 +156,32 @@
 <body>
 
 <div class="main-container">
-    <h2 class="section-title">个人中心</h2>
+    <h2 class="section-title">我的个人中心</h2>
 
     <!-- Navigation Tabs -->
     <ul class="nav nav-tabs mb-4">
         <li class="nav-item">
-            <a class="nav-link active" href="volunteer_center.jsp">个人中心</a>
+            <a class="nav-link" href="volunteer_center.jsp">个人中心</a>
         </li>
         <li class="nav-item">
-            <%-- 消息通知页面链接，目前使用占位符 # --%>
-            <a class="nav-link" href="messages.jsp">消息通知</a>
+            <a class="nav-link active" href="messages.jsp">消息通知</a>
         </li>
         <li class="nav-item">
-            <%-- 服务记录页面链接，目前指向当前页面或可以考虑锚点链接 --%>
             <a class="nav-link" href="service_records.jsp">服务记录</a>
         </li>
         <li class="nav-item">
-            <%-- 收到评价页面链接，目前使用占位符 # --%>
-            <a class="nav-link" href="reviews.jsp.jsp">收到评价</a>
+            <a class="nav-link" href="reviews.jsp">收到评价</a>
         </li>
     </ul>
 
-    <!-- Welcome Card -->
-    <div class="card info-card">
-        <div class="card-body">
-            <h4>欢迎，<%= username %>！</h4>
-            <p>当前积分：<span class="badge bg-success"><%= points %></span></p>
-            <% if (errorMsg != null) { %>
-            <div class="alert alert-danger mt-3"><%= errorMsg %></div>
-            <% } %>
-        </div>
-    </div>
-
-    <!-- Service Records Card -->
-    <div class="card records-card" id="service-records"> <%-- 添加了id="service-records"用于锚点链接 --%>
+    <!-- Messages Content Card -->
+    <div class="card content-card">
         <div class="card-header">
-            <h5>我的志愿服务记录</h5>
+            <h5>消息通知</h5>
         </div>
         <div class="card-body">
-            <div class="table-responsive"> <%-- 添加响应式表格容器 --%>
-                <table class="table table-striped table-hover table-bordered"> <%-- 优化表格样式 --%>
-                    <thead class="table-light">
-                    <tr>
-                        <th>项目名称</th>
-                        <th>描述</th>
-                        <th>获得积分</th>
-                        <th>报名时间</th>
-                        <th>是否完成</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <%
-                        try (Connection conn = JDBCUtil.getConnection();
-                             PreparedStatement ps = conn.prepareStatement(
-                                     "SELECT p.name, p.description, p.points, s.signup_time, s.completed " +
-                                             "FROM signup s JOIN user u ON s.user_id=u.id " +
-                                             "JOIN project p ON s.project_id=p.id " +
-                                             "WHERE u.username=? ORDER BY s.signup_time DESC")) {
-                            ps.setString(1, username);
-                            try (ResultSet rs = ps.executeQuery()) {
-                                boolean hasRecord = false;
-                                while (rs.next()) {
-                                    hasRecord = true;
-                    %>
-                    <tr>
-                        <td><%= rs.getString("name") %></td>
-                        <td><%= rs.getString("description") %></td>
-                        <td><%= rs.getInt("points") %></td>
-                        <td><%= rs.getTimestamp("signup_time") %></td>
-                        <td><%= rs.getBoolean("completed") ? "已完成" : "未完成" %></td>
-                    </tr>
-                    <%
-                                }
-                                if (!hasRecord) {
-                    %>
-                    <tr><td colspan="5" class="text-center text-muted">暂无志愿服务记录</td></tr> <%-- 居中并使用muted颜色 --%>
-                    <%
-                                }
-                            }
-                        } catch (Exception e) {
-                    %>
-                    <tr><td colspan="5" class="text-danger text-center">加载报名记录失败：<%= e.getMessage() %></td></tr> <%-- 居中显示错误 --%>
-                    <%
-                        }
-                    %>
-                    </tbody>
-                </table>
-            </div>
+            <p class="text-center text-muted">暂无新消息。</p>
+            <%-- 在这里添加消息列表的逻辑和显示 --%>
         </div>
     </div>
 

@@ -15,7 +15,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        // PrintWriter out = response.getWriter(); // 不再需要直接输出HTML
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -28,17 +28,24 @@ public class RegisterServlet extends HttpServlet {
                 ps.setString(2, password);
                 int result = ps.executeUpdate();
                 if (result > 0) {
-                    out.println("<html><body><h2>注册成功！</h2><a href='login.jsp'>去登录</a></body></html>");
+                    // 注册成功，重定向到登录页面
+                    response.sendRedirect("login.jsp");
                 } else {
-                    out.println("<html><body><h2>注册失败，请稍后再试！</h2><a href='register.jsp'>返回注册</a></body></html>");
+                    // 注册失败，请稍后再试
+                    request.setAttribute("errorMessage", "注册失败，请稍后再试！");
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
             } catch (Exception e) {
-                out.println("<html><body><h2>注册失败，系统错误！</h2><p>" + e.getMessage() + "</p><a href='register.jsp'>返回注册</a></body></html>");
-                e.printStackTrace();
+                // 数据库或其他系统错误
+                e.printStackTrace(); // 记录日志
+                request.setAttribute("errorMessage", "注册失败，系统错误：" + e.getMessage());
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
         } else {
-            out.println("<html><body><h2>注册失败，请检查输入！</h2><a href='register.jsp'>返回注册</a></body></html>");
+            // 输入无效
+            request.setAttribute("errorMessage", "注册失败，请检查输入！");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        out.close();
+        // out.close(); // 不再需要在这里关闭
     }
 }

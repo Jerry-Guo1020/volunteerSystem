@@ -3,21 +3,29 @@
 <%
     String username = (String) session.getAttribute("username");
     if (username == null) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("../login.jsp"); // 注意路径调整
         return;
     }
-    int points = 0;
+    // 可以选择在这里再次查询积分，或者只查询服务记录
+    // int points = 0; // 如果需要显示积分
     String errorMsg = null;
-    try (Connection conn = JDBCUtil.getConnection();
-         PreparedStatement ps = conn.prepareStatement("SELECT points FROM user WHERE username=?")) {
+    ResultSet rs = null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+
+    try {
+        conn = JDBCUtil.getConnection();
+        ps = conn.prepareStatement(
+                "SELECT p.name, p.description, p.points, s.signup_time, s.completed " +
+                        "FROM signup s JOIN user u ON s.user_id=u.id " +
+                        "JOIN project p ON s.project_id=p.id " +
+                        "WHERE u.username=? ORDER BY s.signup_time DESC");
         ps.setString(1, username);
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                points = rs.getInt("points");
-            }
-        }
+        rs = ps.executeQuery();
+
     } catch (Exception e) {
-        errorMsg = "获取积分失败：" + e.getMessage();
+        errorMsg = "加载报名记录失败：" + e.getMessage();
+        e.printStackTrace();
     }
 %>
 <!DOCTYPE html>
@@ -25,7 +33,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人中心 - 志愿者服务平台</title>
+    <title>服务记录 - 志愿者服务平台</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -56,14 +64,14 @@
         }
 
         /* 卡片样式优化 */
-        .info-card, .records-card {
+        .info-card, .content-card { /* content-card 用于其他页面内容 */
             border: none; /* 移除默认边框 */
             border-radius: 10px; /* 较小的圆角 */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 较小的阴影 */
             margin-bottom: 30px; /* 卡片间距 */
         }
 
-        .info-card .card-body, .records-card .card-body {
+        .info-card .card-body, .content-card .card-body {
             padding: 25px; /* 调整内边距 */
         }
 
@@ -170,46 +178,35 @@
 <body>
 
 <div class="main-container">
-    <h2 class="section-title">个人中心</h2>
+    <h2 class="section-title">我的个人中心</h2>
 
     <!-- Navigation Tabs -->
     <ul class="nav nav-tabs mb-4">
         <li class="nav-item">
-            <a class="nav-link active" href="volunteer_center.jsp">个人中心</a>
+            <a class="nav-link" href="volunteer_center.jsp">个人中心</a>
         </li>
         <li class="nav-item">
-            <%-- 消息通知页面链接，目前使用占位符 # --%>
             <a class="nav-link" href="messages.jsp">消息通知</a>
         </li>
         <li class="nav-item">
-            <%-- 服务记录页面链接，目前指向当前页面或可以考虑锚点链接 --%>
-            <a class="nav-link" href="service_records.jsp">服务记录</a>
+            <a class="nav-link active" href="service_records.jsp">服务记录</a>
         </li>
         <li class="nav-item">
-            <%-- 收到评价页面链接，目前使用占位符 # --%>
-            <a class="nav-link" href="reviews.jsp.jsp">收到评价</a>
+            <a class="nav-link" href="reviews.jsp">收到评价</a>
         </li>
     </ul>
 
-    <!-- Welcome Card -->
-    <div class="card info-card">
-        <div class="card-body">
-            <h4>欢迎，<%= username %>！</h4>
-            <p>当前积分：<span class="badge bg-success"><%= points %></span></p>
-            <% if (errorMsg != null) { %>
-            <div class="alert alert-danger mt-3"><%= errorMsg %></div>
-            <% } %>
-        </div>
-    </div>
-
     <!-- Service Records Card -->
-    <div class="card records-card" id="service-records"> <%-- 添加了id="service-records"用于锚点链接 --%>
+    <div class="card content-card">
         <div class="card-header">
             <h5>我的志愿服务记录</h5>
         </div>
         <div class="card-body">
-            <div class="table-responsive"> <%-- 添加响应式表格容器 --%>
-                <table class="table table-striped table-hover table-bordered"> <%-- 优化表格样式 --%>
+            <% if (errorMsg != null) { %>
+            <div class="alert alert-danger"><%= errorMsg %></div>
+            <% } else { %>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
                     <thead class="table-light">
                     <tr>
                         <th>项目名称</th>
@@ -221,17 +218,10 @@
                     </thead>
                     <tbody>
                     <%
-                        try (Connection conn = JDBCUtil.getConnection();
-                             PreparedStatement ps = conn.prepareStatement(
-                                     "SELECT p.name, p.description, p.points, s.signup_time, s.completed " +
-                                             "FROM signup s JOIN user u ON s.user_id=u.id " +
-                                             "JOIN project p ON s.project_id=p.id " +
-                                             "WHERE u.username=? ORDER BY s.signup_time DESC")) {
-                            ps.setString(1, username);
-                            try (ResultSet rs = ps.executeQuery()) {
-                                boolean hasRecord = false;
-                                while (rs.next()) {
-                                    hasRecord = true;
+                        boolean hasRecord = false;
+                        if (rs != null) {
+                            while (rs.next()) {
+                                hasRecord = true;
                     %>
                     <tr>
                         <td><%= rs.getString("name") %></td>
@@ -241,22 +231,18 @@
                         <td><%= rs.getBoolean("completed") ? "已完成" : "未完成" %></td>
                     </tr>
                     <%
-                                }
-                                if (!hasRecord) {
-                    %>
-                    <tr><td colspan="5" class="text-center text-muted">暂无志愿服务记录</td></tr> <%-- 居中并使用muted颜色 --%>
-                    <%
-                                }
                             }
-                        } catch (Exception e) {
+                        }
+                        if (!hasRecord) {
                     %>
-                    <tr><td colspan="5" class="text-danger text-center">加载报名记录失败：<%= e.getMessage() %></td></tr> <%-- 居中显示错误 --%>
+                    <tr><td colspan="5" class="text-center text-muted">暂无志愿服务记录</td></tr>
                     <%
                         }
                     %>
                     </tbody>
                 </table>
             </div>
+            <% } %>
         </div>
     </div>
 
@@ -271,3 +257,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<%
+    // 关闭数据库资源
+    try { if (rs != null) rs.close(); } catch (SQLException ignore) {}
+    try { if (ps != null) ps.close(); } catch (SQLException ignore) {}
+    try { if (conn != null) conn.close(); } catch (SQLException ignore) {}
+%>

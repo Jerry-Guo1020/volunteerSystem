@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        // PrintWriter out = response.getWriter(); // 不再需要直接输出HTML
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -32,17 +32,20 @@ public class LoginServlet extends HttpServlet {
                     // 登录成功，创建会话
                     HttpSession session = request.getSession();
                     session.setAttribute("username", username);
-                    // 重定向到项目列表页面
+                    // 重定向到个人中心页面
                     response.sendRedirect("volunteer_center.jsp");
                 } else {
-                    out.println("<html><body><h2>登录失败，用户名或密码错误！</h2><a href='login.jsp'>返回登录</a></body></html>");
+                    // 登录失败，设置错误信息并转发到错误页面
+                    request.setAttribute("errorMessage", "登录失败，用户名或密码错误！");
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
             }
         } catch (Exception e) {
-            out.println("<html><body><h2>登录失败，系统错误！</h2><p>" + e.getMessage() + "</p><a href='login.jsp'>返回登录</a></body></html>");
-            e.printStackTrace();
-        } finally {
-            out.close();
+            // 数据库或其他系统错误，设置错误信息并转发到错误页面
+            e.printStackTrace(); // 记录日志
+            request.setAttribute("errorMessage", "登录失败，系统错误：" + e.getMessage()); // 您提到的这行代码
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        // out.close(); // 不再需要在这里关闭
     }
 }
