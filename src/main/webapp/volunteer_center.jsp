@@ -368,6 +368,9 @@
             <a href="points_mall.jsp" class="list-group-item list-group-item-action">
                 <i class="fas fa-store"></i> 积分商城
             </a>
+            <a href="messages.jsp" class="list-group-item list-group-item-action">
+                <i class="fas fa-envelope"></i> 消息中心
+            </a>
         </div>
     </div>
 

@@ -225,7 +225,7 @@
     activity2.put("title", "5.24招生志愿活动");
     activity2.put("publisher", "乐昌市城关中学");
     activity2.put("time", "2025/05/24 00:00 - 23:59");
-    activity2.put("category", "中学生志愿服务");
+    activity2.put("category", "志愿服务");
     activity2.put("icon", "fas fa-graduation-cap"); // Example icon
 
     Map<String, String> activity3 = new HashMap<>();
@@ -239,7 +239,7 @@
     activity4.put("title", "“青春志愿行,奉献新时代”5月24日志愿行");
     activity4.put("publisher", "广交院青年志愿者行动指导中心");
     activity4.put("time", "2025/05/24 00:00 - 05/25 23:59");
-    activity4.put("category", "ivism");
+    activity4.put("category", "志愿服务");
     activity4.put("icon", "fas fa-flag"); // Example icon
 
     recommendedActivities.add(activity1);
