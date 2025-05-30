@@ -25,11 +25,10 @@ CREATE TABLE IF NOT EXISTS project (
     end_time DATETIME,
     -- 项目结束时间
     category VARCHAR(50) -- 项目类别 (例如：环保, 教育, 社区服务)
-    -- 您可以根据需要添加更多字段，例如：
-    -- location VARCHAR(255),
-    -- required_volunteers INT,
-    -- current_volunteers INT DEFAULT 0
+
 );
+
+
 -- 创建报名记录表 (signup)
 -- 存储用户报名参加项目的记录，以及完成状态
 CREATE TABLE IF NOT EXISTS signup (
@@ -140,3 +139,10 @@ VALUES (
         'https://via.placeholder.com/150x150?text=Cable+Organizer',
         FALSE
     );
+
+INSERT INTO project (id, name, description, points, publisher, start_time, end_time) VALUES
+(1, '社区清洁活动', '参与社区清洁，提升环境卫生。', 50, '社区中心', '2023-11-01 09:00:00', '2023-11-01 12:00:00'),
+(2, '图书馆志愿者', '协助图书馆整理书籍和管理借阅。', 30, '市图书馆', '2023-11-05 10:00:00', '2023-11-05 16:00:00'),
+(3, '老人院探访', '陪伴老人，提供关怀和帮助。', 40, '志愿者协会', '2023-11-10 14:00:00', '2023-11-10 17:00:00'),
+(4, '植树活动', '参与植树活动，绿化环境。', 60, '环保组织', '2023-11-15 08:00:00', '2023-11-15 11:00:00'),
+(5, '动物收容所志愿者', '帮助照顾动物，维护收容所环境。', 45, '动物保护协会', '2023-11-20 09:00:00', '2023-11-20 13:00:00');
