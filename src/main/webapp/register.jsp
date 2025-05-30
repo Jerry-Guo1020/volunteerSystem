@@ -140,6 +140,13 @@
                             </div>
                         </div>
                         <div class="mb-4">
+                            <label for="email" class="form-label">邮箱</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
                             <label for="password" class="form-label">密码</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>

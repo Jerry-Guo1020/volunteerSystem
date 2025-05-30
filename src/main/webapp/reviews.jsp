@@ -174,25 +174,10 @@
     </style>
 </head>
 <body>
+<jsp:include page="common/navbar.jsp" />
 
 <div class="main-container">
-    <h2 class="section-title">我的个人中心</h2>
-
-    <!-- Navigation Tabs -->
-    <ul class="nav nav-tabs mb-4">
-        <li class="nav-item">
-            <a class="nav-link" href="volunteer_center.jsp">个人中心</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="messages.jsp">消息通知</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="service_records.jsp">服务记录</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="reviews.jsp">收到评价</a>
-        </li>
-    </ul>
+    <h2 class="section-title">收到的评价</h2> <%-- 修改主标题 --%>
 
     <!-- Reviews Content Card -->
     <div class="card content-card">

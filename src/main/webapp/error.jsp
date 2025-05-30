@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="bg-light">
+<jsp:include page="common/navbar.jsp" />
 <div class="container mt-5">
     <div class="alert alert-danger">
         <h4>发生错误</h4>

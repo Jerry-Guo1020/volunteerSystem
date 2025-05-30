@@ -268,61 +268,7 @@
     latestNews.add(news2);
     latestNews.add(news3);
 %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-hands-helping me-2"></i>志愿者服务平台
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.jsp">首页</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="project_list.jsp">志愿项目</a>
-                </li>
-                <% if (isLoggedIn) { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="volunteer_center.jsp">个人中心</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="user-avatar">
-                            <%= username.substring(0, 1).toUpperCase() %>
-                        </div>
-                        <%= username %>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end"
-                        aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="volunteer_center.jsp"><i
-                                class="fas fa-user me-2"></i>个人资料</a></li>
-                        <li><a class="dropdown-item" href="project_list.jsp"><i
-                                class="fas fa-list-alt me-2"></i>我的项目</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item text-danger" href="logout.jsp"><i
-                                class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
-                    </ul>
-                </li>
-                <% } else { %>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.jsp">登录</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.jsp">注册</a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
-    </div>
-</nav>
+<jsp:include page="common/navbar.jsp" />
 
 <!-- 轮播图 -->
 <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -341,7 +287,11 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>加入志愿者行列</h2>
                 <p>用爱心和行动，共建美好社会</p>
+                <% if (isLoggedIn) { %>
+                <a href="volunteer_center.jsp" class="btn btn-success">进入个人中心</a>
+                <% } else { %>
                 <a href="register.jsp" class="btn btn-success">立即加入</a>
+                <% } %>
             </div>
         </div>
         <div class="carousel-item">

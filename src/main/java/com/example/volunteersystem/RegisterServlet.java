@@ -19,13 +19,18 @@ public class RegisterServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String email = request.getParameter("email"); // 新增
 
         // 添加数据库注册逻辑
-        if (username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
+        if (username != null && !username.isEmpty() &&
+            password != null && !password.isEmpty() &&
+            email != null && !email.isEmpty()) {
             try (Connection conn = JDBCUtil.getConnection();
-                 PreparedStatement ps = conn.prepareStatement("INSERT INTO user (username, password, points) VALUES (?, ?, 0)")) {
+                 PreparedStatement ps = conn.prepareStatement(
+                     "INSERT INTO user (username, password, email, points) VALUES (?, ?, ?, 0)")) {
                 ps.setString(1, username);
                 ps.setString(2, password);
+                ps.setString(3, email); // 新增
                 int result = ps.executeUpdate();
                 if (result > 0) {
                     // 注册成功，重定向到登录页面
