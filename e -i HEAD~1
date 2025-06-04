@@ -1,0 +1,71 @@
+[33mcommit 3a8a33f78b10cf265cfa0f83f23743fc77cb4993[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Jerry <15170551+jerryguo1020@user.noreply.gitee.com>
+Date:   Tue Jun 3 20:34:19 2025 +0800
+
+    更新了与前端的交互
+
+[33mcommit 51cadc001691cec2be0fa5e29bbfb5b3fc3f0ae6[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 30 23:42:27 2025 +0800
+
+    更新了部分内容
+
+[33mcommit 0c88ec721bbaf382bd04f4bc2a9f4295bb0b7e37[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 30 23:39:36 2025 +0800
+
+    更新了项目展示，加入活动的操作逻辑，以及积分商城消费积分的内容
+
+[33mcommit 47d04c9741d39c27da520aaea3a0801cf8ad7b1a[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 30 20:03:14 2025 +0800
+
+    更新了数据库的内容，让志愿项目展示出来
+
+[33mcommit e703d3119411d0c1f6aed7d2ea0cf744e2fa7560[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 30 15:24:49 2025 +0800
+
+    优化了个人中心部分，首页内容，新增了积分商城，导航栏常驻顶部
+
+[33mcommit 387339c5cdfbb920a41248456c535cd8f792521b[m
+Author: Jerry <2593517388@qq.com>
+Date:   Sun May 25 02:40:41 2025 +0800
+
+    添加了优化了主页，以及增加了积分商城
+
+[33mcommit 00d6ee694e7a8699bd53e7751ddba09135aa46b9[m
+Author: Jerry <2593517388@qq.com>
+Date:   Sat May 24 18:39:08 2025 +0800
+
+    添加了优化了个人中心，添加了收到评价和消息通知的例子
+
+[33mcommit b751d7a12641d19f0027551133221d923d8a06bb[m
+Author: Jerry <2593517388@qq.com>
+Date:   Sat May 24 15:28:30 2025 +0800
+
+    优化了个人中心，然后在个人中心里面消息通知、服务记录、收到评价的功能，然后还弄了退出登录有一个计时器然后3s后跳转回index
+
+[33mcommit 355fb4758d53e78934e9fa1ffd10937c8f6ee36c[m
+Author: Jerry <2593517388@qq.com>
+Date:   Sat May 24 01:51:18 2025 +0800
+
+    去写了个markdown
+
+[33mcommit 9cc1fe51b9b3cb6ebeb90fdf85b793c028741fd3[m
+Author: Jerry <2593517388@qq.com>
+Date:   Sat May 24 01:41:40 2025 +0800
+
+    优化了首页、项目介绍和个人中心的初步制作
+
+[33mcommit d7a647973b7fe4161b91ff023974becbd361923e[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 23 22:20:33 2025 +0800
+
+    first commit
+
+[33mcommit f00922947a625b7d6018bb1e48aaad61bc8b5a0f[m
+Author: Jerry <2593517388@qq.com>
+Date:   Fri May 23 22:20:00 2025 +0800
+
+    first commit
