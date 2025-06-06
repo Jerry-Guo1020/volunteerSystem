@@ -14,22 +14,25 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        // PrintWriter out = response.getWriter(); // 不再需要直接输出HTML
+   
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String email = request.getParameter("email"); // 新增
+        String email = request.getParameter("email"); 
+        String realname = request.getParameter("realname");
 
         // 添加数据库注册逻辑
         if (username != null && !username.isEmpty() &&
             password != null && !password.isEmpty() &&
-            email != null && !email.isEmpty()) {
+            email != null && !email.isEmpty()&&
+            realname != null && !realname.isEmpty()) {
             try (Connection conn = JDBCUtil.getConnection();
                  PreparedStatement ps = conn.prepareStatement(
-                     "INSERT INTO user (username, password, email, points) VALUES (?, ?, ?, 0)")) {
+                     "INSERT INTO user (username, password, email, realname, points) VALUES (?, ?, ?, ?, 0)")) {
                 ps.setString(1, username);
                 ps.setString(2, password);
-                ps.setString(3, email); // 新增
+                ps.setString(3, email); 
+                ps.setString(4, realname);
                 int result = ps.executeUpdate();
                 if (result > 0) {
                     // 注册成功，重定向到登录页面
@@ -50,6 +53,6 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("errorMessage", "注册失败，请检查输入！");
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        // out.close(); // 不再需要在这里关闭
+
     }
 }
