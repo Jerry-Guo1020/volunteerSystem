@@ -9,15 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      /* 与用户登录页面相同的渐变背景 */
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 15px; /* 添加 padding */
-      box-sizing: border-box; /* 添加 box-sizing */
+      padding: 15px; 
+      box-sizing: border-box; 
     }
 
     .login-card {
@@ -28,7 +27,7 @@
       max-width: 450px;
       width: 100%;
       margin: 0 auto;
-      background-color: #fff;
+      
     }
 
     .login-card:hover {
@@ -36,22 +35,21 @@
     }
 
     .card-header {
-      /* 修改为黄色渐变背景 */
       background: linear-gradient(45deg, #ffc107, #ff9800); /* 黄色渐变 */
       color: white;
-      padding: 15px;
-      font-size: 1.2rem;
-      font-weight: bold;
+      padding: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
       text-align: center;
     }
 
     .card-body {
-      padding: 30px;
+        padding: 2rem;
+        background-color: white;
     }
 
     .login-icon {
       font-size: 4rem;
-      /* 修改为黄色 */
       color: #ffc107; /* 黄色 */
       text-align: center;
       margin-bottom: 20px;
@@ -63,7 +61,7 @@
     }
 
     .footer-link a {
-      color: #007bff;
+      color:  #ffc107;
       text-decoration: none;
       font-weight: bold;
     }
@@ -72,7 +70,7 @@
       text-decoration: underline;
     }
 
-    /* 添加与用户登录页面相同的输入框和按钮样式 */
+
     .form-label {
         font-weight: 600;
         color: #555;
@@ -90,7 +88,7 @@
 
     .form-control:focus {
         box-shadow: none;
-        border-color: #007bff;
+        border-color: #ffc107;
     }
 
     .btn-success {
@@ -101,7 +99,7 @@
         font-size: 1.1rem;
         font-weight: 600;
         padding: 10px 20px;
-        border-radius: 30px;
+        border-radius: 10px;
         transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -128,7 +126,7 @@
     }
 
     .register-link a {
-        color: #007bff;
+        color:  #ff9800;
         text-decoration: none;
         font-weight: bold;
     }
@@ -170,9 +168,8 @@
               <i class="fas fa-sign-in-alt me-2"></i>登录
             </button>
           </form>
-          <%-- 添加注册链接，仿照用户登录页面 --%>
           <div class="register-link">
-              没有账号? <a href="register.jsp">立即注册</a>
+              没有账号? <a href="index.jsp"> 那就别登录了</a>
           </div>
         </div>
       </div>

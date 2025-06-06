@@ -149,7 +149,7 @@
             <button type="submit" class="btn btn-success w-100 mb-3">
               <i class="fas fa-sign-in-alt me-2"></i>登录
             </button>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 bold">
               没有账号？<a href="register.jsp" class="register-link">立即注册</a>
             </div>
           </form>
