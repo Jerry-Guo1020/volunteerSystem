@@ -1,3 +1,6 @@
+
+USE volunteer_platform;
+
 -- 创建用户表 user
 -- 存储用户信息，包括用户名、密码和积分
 CREATE TABLE IF NOT EXISTS user (
@@ -160,3 +163,13 @@ INSERT INTO messages (sender, recipient, content) VALUES
 ('admin', 'user1', '欢迎来到志愿者服务平台！'),
 ('user2', 'admin', '感谢您的帮助！'),
 ('admin', 'user3', '新的活动已经发布，欢迎参与！');
+
+CREATE TABLE admin (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    realname VARCHAR(50) NOT NULL
+);
+
+INSERT INTO admin (username, password, realname) VALUES
+('admin', 'admin123', '系统管理员');

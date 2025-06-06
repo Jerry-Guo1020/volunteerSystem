@@ -159,6 +159,9 @@
         <a href="index.jsp" class="text-decoration-none text-secondary">
           <i class="fas fa-home me-1"></i>返回首页
         </a>
+        <a href="admin_login.jsp" class="text-decoration-none text-secondary ms-3">
+          <i class="fas fa-user-shield me-1"></i>管理员登录
+        </a>
       </div>
     </div>
   </div>
