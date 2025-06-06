@@ -1,0 +1,90 @@
+Date : 2025-06-06 15:24:02
+Directory : d:\jsp\期末作业\VolunteerSystem
+Total : 45 files,  4531 codes, 139 comments, 471 blanks, all 5141 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| HTML            |         27 |      3,766 |         20 |        354 |      4,140 |
+| Java            |          7 |        346 |         37 |         59 |        442 |
+| XML             |          7 |        135 |          3 |          9 |        147 |
+| MS SQL          |          1 |        134 |         28 |         13 |        175 |
+| Batch           |          1 |        102 |         51 |         36 |        189 |
+| Markdown        |          1 |         46 |          0 |          0 |         46 |
+| Java Properties |          1 |          2 |          0 |          0 |          2 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                            |         45 |      4,531 |        139 |        471 |      5,141 |
+| . (Files)                                                                                    |          3 |        199 |         53 |         41 |        293 |
+| .idea                                                                                        |          5 |         51 |          0 |          0 |         51 |
+| .mvn                                                                                         |          1 |          2 |          0 |          0 |          2 |
+| .mvn\wrapper                                                                                 |          1 |          2 |          0 |          0 |          2 |
+| src                                                                                          |         36 |      4,279 |         86 |        430 |      4,795 |
+| src (Files)                                                                                  |          1 |        134 |         28 |         13 |        175 |
+| src\main                                                                                     |         35 |      4,145 |         58 |        417 |      4,620 |
+| src\main\java                                                                                |          7 |        346 |         37 |         59 |        442 |
+| src\main\java\com                                                                            |          7 |        346 |         37 |         59 |        442 |
+| src\main\java\com\example                                                                    |          7 |        346 |         37 |         59 |        442 |
+| src\main\java\com\example\volunteersystem                                                    |          7 |        346 |         37 |         59 |        442 |
+| src\main\webapp                                                                              |         28 |      3,799 |         21 |        358 |      4,178 |
+| src\main\webapp (Files)                                                                      |         26 |      3,689 |         20 |        353 |      4,062 |
+| src\main\webapp\WEB-INF                                                                      |          1 |         33 |          1 |          4 |         38 |
+| src\main\webapp\common                                                                       |          1 |         77 |          0 |          1 |         78 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                     | language        | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| d:\jsp\期末作业\VolunteerSystem\.idea\dataSources.xml                                            | XML             |         17 |          0 |          0 |         17 |
+| d:\jsp\期末作业\VolunteerSystem\.idea\encodings.xml                                              | XML             |          7 |          0 |          0 |          7 |
+| d:\jsp\期末作业\VolunteerSystem\.idea\misc.xml                                                   | XML             |         14 |          0 |          0 |         14 |
+| d:\jsp\期末作业\VolunteerSystem\.idea\sqldialects.xml                                            | XML             |          6 |          0 |          0 |          6 |
+| d:\jsp\期末作业\VolunteerSystem\.idea\vcs.xml                                                    | XML             |          7 |          0 |          0 |          7 |
+| d:\jsp\期末作业\VolunteerSystem\.mvn\wrapper\maven-wrapper.properties                            | Java Properties |          2 |          0 |          0 |          2 |
+| d:\jsp\期末作业\VolunteerSystem\README.md                                                        | Markdown        |         46 |          0 |          0 |         46 |
+| d:\jsp\期末作业\VolunteerSystem\mvnw.cmd                                                         | Batch           |        102 |         51 |         36 |        189 |
+| d:\jsp\期末作业\VolunteerSystem\pom.xml                                                          | XML             |         51 |          2 |          5 |         58 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AddProjectServlet.java | Java            |         79 |          9 |         15 |        103 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminLoginServlet.java | Java            |         38 |          0 |          4 |         42 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\HelloServlet.java      | Java            |         23 |          1 |          7 |         31 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\JDBCUtil.java          | Java            |         28 |          2 |          5 |         35 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\LoginServlet.java      | Java            |         38 |          7 |          6 |         51 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\RegisterServlet.java   | Java            |         43 |          7 |          6 |         56 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\SignupServlet.java     | Java            |         97 |         11 |         16 |        124 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\WEB-INF\web.xml                                  | XML             |         33 |          1 |          4 |         38 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\add_project.jsp                                  | HTML            |         41 |          0 |          2 |         43 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_dashboard.jsp                              | HTML            |        114 |          0 |          0 |        114 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_login.jsp                                  | HTML            |        167 |          0 |         22 |        189 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_logout.jsp                                 | HTML            |         25 |          1 |          3 |         29 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_action.jsp                         | HTML            |         78 |          0 |          7 |         85 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_create.jsp                         | HTML            |         44 |          0 |          1 |         45 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_manage.jsp                         | HTML            |        183 |          2 |          0 |        185 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_report.jsp                                 | HTML            |        117 |          0 |          0 |        117 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_signup_action.jsp                          | HTML            |         43 |          0 |          4 |         47 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_signup_manage.jsp                          | HTML            |        133 |          0 |          0 |        133 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_action.jsp                            | HTML            |         76 |          0 |          5 |         81 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_manage.jsp                            | HTML            |        150 |          0 |          0 |        150 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\common\navbar.jsp                                | HTML            |         77 |          0 |          1 |         78 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\error.jsp                                        | HTML            |         21 |          0 |          0 |         21 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\index.jsp                                        | HTML            |        410 |          7 |         52 |        469 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\join_project.jsp                                 | HTML            |         32 |          0 |          5 |         37 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\login.jsp                                        | HTML            |        154 |          0 |         16 |        170 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\logout.jsp                                       | HTML            |        107 |          0 |         14 |        121 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\messages.jsp                                     | HTML            |        207 |          0 |         26 |        233 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\points_mall.jsp                                  | HTML            |        259 |          0 |         31 |        290 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\project_list.jsp                                 | HTML            |        203 |          1 |         23 |        227 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\redeem_item.jsp                                  | HTML            |         46 |          0 |          5 |         51 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\register.jsp                                     | HTML            |        158 |          0 |         16 |        174 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\reviews.jsp                                      | HTML            |        199 |          3 |         31 |        233 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\service_records.jsp                              | HTML            |        295 |          0 |         38 |        333 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\signup.jsp                                       | HTML            |         40 |          0 |          2 |         42 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\volunteer_center.jsp                             | HTML            |        387 |          6 |         50 |        443 |
+| d:\jsp\期末作业\VolunteerSystem\src\数据库.sql                                                      | MS SQL          |        134 |         28 |         13 |        175 |
+| Total                                                                                        |                 |      4,531 |        139 |        471 |      5,141 |
++----------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+

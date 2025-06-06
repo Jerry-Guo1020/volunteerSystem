@@ -16,7 +16,7 @@
             justify-content: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         .register-card {
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -26,11 +26,11 @@
             width: 100%;
             margin: 0 auto;
         }
-        
+
         .register-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .card-header {
             background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
             padding: 1.5rem;
@@ -38,24 +38,24 @@
             font-size: 1.5rem;
             font-weight: 600;
         }
-        
+
         .card-body {
             padding: 2rem;
             background-color: white;
         }
-        
+
         .form-control {
             border-radius: 10px;
             padding: 0.75rem 1rem;
             border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
         }
-        
+
         .form-control:focus {
             box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
             border-color: #0d6efd;
         }
-        
+
         .btn-primary {
             border-radius: 10px;
             padding: 0.75rem;
@@ -65,23 +65,23 @@
             border: none;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
         }
-        
+
         .form-label {
             font-weight: 500;
             color: #495057;
         }
-        
+
         .register-icon {
             display: flex;
             justify-content: center;
             margin-bottom: 1.5rem;
         }
-        
+
         .register-icon i {
             font-size: 3rem;
             color: #0d6efd;
@@ -89,30 +89,30 @@
             padding: 1rem;
             border-radius: 50%;
         }
-        
+
         .input-group-text {
             background-color: #f8f9fa;
             border-right: none;
             border-radius: 10px 0 0 10px;
         }
-        
+
         .input-group .form-control {
             border-left: none;
             border-radius: 0 10px 10px 0;
         }
-        
+
         .login-link {
             color: #0d6efd;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        
+
         .login-link:hover {
             color: #0a58ca;
             text-decoration: underline;
         }
-        
+
         .footer-link {
             margin-top: 1rem;
             text-align: center;
@@ -137,6 +137,13 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="请设置用户名" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="realname" class="form-label">姓名</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-address-card"></i></span> 
+                                <input type="text" class="form-control" id="realname" name="realname" placeholder="请输入您的真实姓名" required>
                             </div>
                         </div>
                         <div class="mb-4">

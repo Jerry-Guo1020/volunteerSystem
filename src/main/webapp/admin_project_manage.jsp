@@ -8,23 +8,30 @@
         return;
     }
     List<Map<String, Object>> projects = new ArrayList<>();
-    try (Connection conn = JDBCUtil.getConnection();
-         PreparedStatement ps = conn.prepareStatement(
-            "SELECT id, name, description, points, publisher, status FROM project ORDER BY id DESC")) {
-        try (ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                Map<String, Object> project = new HashMap<>();
-                project.put("id", rs.getInt("id"));
-                project.put("name", rs.getString("name"));
-                project.put("description", rs.getString("description"));
-                project.put("points", rs.getInt("points"));
-                project.put("publisher", rs.getString("publisher"));
-                project.put("status", rs.getInt("status"));
-                projects.add(project);
-            }
+    Connection conn = null; // 声明连接变量
+    PreparedStatement ps = null; // 声明 PreparedStatement 变量
+    ResultSet rs = null; // 声明 ResultSet 变量
+    try { // 使用 try-catch-finally 确保资源关闭
+        conn = JDBCUtil.getConnection(); // 获取连接
+        ps = conn.prepareStatement(
+            "SELECT id, name, description, points, publisher, status FROM project ORDER BY id DESC");
+        rs = ps.executeQuery(); // 执行查询
+        while (rs.next()) {
+            Map<String, Object> project = new HashMap<>();
+            project.put("id", rs.getInt("id"));
+            project.put("name", rs.getString("name"));
+            project.put("description", rs.getString("description"));
+            project.put("points", rs.getInt("points"));
+            project.put("publisher", rs.getString("publisher"));
+            project.put("status", rs.getInt("status"));
+            projects.add(project);
         }
     } catch (Exception e) {
         e.printStackTrace();
+        out.print("数据库查询错误: " + e.getMessage()); // 添加错误输出
+    } finally {
+        // 确保资源关闭
+        JDBCUtil.close(conn, ps, rs);
     }
 %>
 <!DOCTYPE html>
@@ -95,47 +102,6 @@
             <i class="fas fa-plus me-1"></i>创建活动
         </button>
     </div>
-    <!-- 创建活动弹窗 -->
-    <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <form class="modal-content" action="admin_project_create.jsp" method="post">
-          <div class="modal-header">
-            <h5 class="modal-title" id="createProjectModalLabel">创建新活动</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">活动主题</label>
-              <input type="text" class="form-control" name="name" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">活动描述</label>
-              <textarea class="form-control" name="description" rows="3" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">活动积分</label>
-              <input type="number" class="form-control" name="points" min="0" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">活动组织</label>
-              <input type="text" class="form-control" name="publisher" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">开始时间</label>
-              <input type="datetime-local" class="form-control" name="start_time" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">结束时间</label>
-              <input type="datetime-local" class="form-control" name="end_time" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-warning">创建</button>
-          </div>
-        </form>
-      </div>
-    </div>
     <table class="table table-hover align-middle">
         <thead>
             <tr>
@@ -181,5 +147,49 @@
         <a href="admin_dashboard.jsp" class="btn btn-outline-warning"><i class="fas fa-arrow-left me-1"></i>返回后台首页</a>
     </div>
 </div>
+
+<!-- 创建活动弹窗 -->
+<div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" action="admin_project_create.jsp" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createProjectModalLabel">创建新活动</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">活动主题</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">活动描述</label>
+          <textarea class="form-control" name="description" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">活动积分</label>
+          <input type="number" class="form-control" name="points" min="0" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">活动组织</label>
+          <input type="text" class="form-control" name="publisher" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">开始时间</label>
+          <input type="datetime-local" class="form-control" name="start_time" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">结束时间</label>
+          <input type="datetime-local" class="form-control" name="end_time" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-warning">创建</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -98,6 +98,8 @@ public class SignupServlet extends HttpServlet {
             e.printStackTrace(); // 打印堆栈跟踪以便调试
             request.setAttribute("message", message);
             request.getRequestDispatcher("/signup.jsp").forward(request, response); // 返回注册页面并显示错误
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         } finally {
             // 关闭数据库资源
             try {

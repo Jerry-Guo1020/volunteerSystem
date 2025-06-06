@@ -1,0 +1,47 @@
+"filename", "language", "Markdown", "XML", "Batch", "Java Properties", "HTML", "MS SQL", "Java", "comment", "blank", "total"
+"d:\jsp\期末作业\VolunteerSystem\.idea\dataSources.xml", "XML", 0, 17, 0, 0, 0, 0, 0, 0, 0, 17
+"d:\jsp\期末作业\VolunteerSystem\.idea\encodings.xml", "XML", 0, 7, 0, 0, 0, 0, 0, 0, 0, 7
+"d:\jsp\期末作业\VolunteerSystem\.idea\misc.xml", "XML", 0, 14, 0, 0, 0, 0, 0, 0, 0, 14
+"d:\jsp\期末作业\VolunteerSystem\.idea\sqldialects.xml", "XML", 0, 6, 0, 0, 0, 0, 0, 0, 0, 6
+"d:\jsp\期末作业\VolunteerSystem\.idea\vcs.xml", "XML", 0, 7, 0, 0, 0, 0, 0, 0, 0, 7
+"d:\jsp\期末作业\VolunteerSystem\.mvn\wrapper\maven-wrapper.properties", "Java Properties", 0, 0, 0, 2, 0, 0, 0, 0, 0, 2
+"d:\jsp\期末作业\VolunteerSystem\README.md", "Markdown", 46, 0, 0, 0, 0, 0, 0, 0, 0, 46
+"d:\jsp\期末作业\VolunteerSystem\mvnw.cmd", "Batch", 0, 0, 102, 0, 0, 0, 0, 51, 36, 189
+"d:\jsp\期末作业\VolunteerSystem\pom.xml", "XML", 0, 51, 0, 0, 0, 0, 0, 2, 5, 58
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AddProjectServlet.java", "Java", 0, 0, 0, 0, 0, 0, 79, 9, 15, 103
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminLoginServlet.java", "Java", 0, 0, 0, 0, 0, 0, 38, 0, 4, 42
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\HelloServlet.java", "Java", 0, 0, 0, 0, 0, 0, 23, 1, 7, 31
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\JDBCUtil.java", "Java", 0, 0, 0, 0, 0, 0, 28, 2, 5, 35
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\LoginServlet.java", "Java", 0, 0, 0, 0, 0, 0, 38, 7, 6, 51
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\RegisterServlet.java", "Java", 0, 0, 0, 0, 0, 0, 43, 7, 6, 56
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\SignupServlet.java", "Java", 0, 0, 0, 0, 0, 0, 97, 11, 16, 124
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\WEB-INF\web.xml", "XML", 0, 33, 0, 0, 0, 0, 0, 1, 4, 38
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\add_project.jsp", "HTML", 0, 0, 0, 0, 41, 0, 0, 0, 2, 43
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_dashboard.jsp", "HTML", 0, 0, 0, 0, 114, 0, 0, 0, 0, 114
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_login.jsp", "HTML", 0, 0, 0, 0, 167, 0, 0, 0, 22, 189
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_logout.jsp", "HTML", 0, 0, 0, 0, 25, 0, 0, 1, 3, 29
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_action.jsp", "HTML", 0, 0, 0, 0, 78, 0, 0, 0, 7, 85
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_create.jsp", "HTML", 0, 0, 0, 0, 44, 0, 0, 0, 1, 45
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_manage.jsp", "HTML", 0, 0, 0, 0, 183, 0, 0, 2, 0, 185
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_report.jsp", "HTML", 0, 0, 0, 0, 117, 0, 0, 0, 0, 117
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_signup_action.jsp", "HTML", 0, 0, 0, 0, 43, 0, 0, 0, 4, 47
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_signup_manage.jsp", "HTML", 0, 0, 0, 0, 133, 0, 0, 0, 0, 133
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_action.jsp", "HTML", 0, 0, 0, 0, 76, 0, 0, 0, 5, 81
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_manage.jsp", "HTML", 0, 0, 0, 0, 150, 0, 0, 0, 0, 150
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\common\navbar.jsp", "HTML", 0, 0, 0, 0, 77, 0, 0, 0, 1, 78
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\error.jsp", "HTML", 0, 0, 0, 0, 21, 0, 0, 0, 0, 21
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\index.jsp", "HTML", 0, 0, 0, 0, 410, 0, 0, 7, 52, 469
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\join_project.jsp", "HTML", 0, 0, 0, 0, 32, 0, 0, 0, 5, 37
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\login.jsp", "HTML", 0, 0, 0, 0, 154, 0, 0, 0, 16, 170
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\logout.jsp", "HTML", 0, 0, 0, 0, 107, 0, 0, 0, 14, 121
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\messages.jsp", "HTML", 0, 0, 0, 0, 207, 0, 0, 0, 26, 233
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\points_mall.jsp", "HTML", 0, 0, 0, 0, 259, 0, 0, 0, 31, 290
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\project_list.jsp", "HTML", 0, 0, 0, 0, 203, 0, 0, 1, 23, 227
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\redeem_item.jsp", "HTML", 0, 0, 0, 0, 46, 0, 0, 0, 5, 51
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\register.jsp", "HTML", 0, 0, 0, 0, 158, 0, 0, 0, 16, 174
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\reviews.jsp", "HTML", 0, 0, 0, 0, 199, 0, 0, 3, 31, 233
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\service_records.jsp", "HTML", 0, 0, 0, 0, 295, 0, 0, 0, 38, 333
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\signup.jsp", "HTML", 0, 0, 0, 0, 40, 0, 0, 0, 2, 42
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\volunteer_center.jsp", "HTML", 0, 0, 0, 0, 387, 0, 0, 6, 50, 443
+"d:\jsp\期末作业\VolunteerSystem\src\数据库.sql", "MS SQL", 0, 0, 0, 0, 0, 134, 0, 28, 13, 175
+"Total", "-", 46, 135, 102, 2, 3766, 134, 346, 139, 471, 5141

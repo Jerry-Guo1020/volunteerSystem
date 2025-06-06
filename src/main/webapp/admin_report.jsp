@@ -8,23 +8,30 @@
         return;
     }
     List<Map<String, Object>> reportList = new ArrayList<>();
-    try (Connection conn = JDBCUtil.getConnection();
-         PreparedStatement ps = conn.prepareStatement(
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    try {
+        conn = JDBCUtil.getConnection();
+         ps = conn.prepareStatement(
             "SELECT u.id, u.username, u.realname, SUM(s.hours) AS total_hours " +
             "FROM user u LEFT JOIN signup s ON u.id = s.user_id " +
-            "GROUP BY u.id, u.username, u.realname ORDER BY total_hours DESC")) {
-        try (ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                Map<String, Object> row = new HashMap<>();
-                row.put("id", rs.getInt("id"));
-                row.put("username", rs.getString("username"));
-                row.put("realname", rs.getString("realname"));
-                row.put("total_hours", rs.getObject("total_hours") == null ? 0 : rs.getDouble("total_hours"));
-                reportList.add(row);
-            }
+            "GROUP BY u.id, u.username, u.realname ORDER BY total_hours DESC");
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            Map<String, Object> row = new HashMap<>();
+            row.put("id", rs.getInt("id"));
+            row.put("username", rs.getString("username"));
+            row.put("realname", rs.getString("realname"));
+            // 处理 SUM(s.hours) 可能为 NULL 的情况
+            row.put("total_hours", rs.getObject("total_hours") == null ? 0.0 : rs.getDouble("total_hours"));
+            reportList.add(row);
         }
     } catch (Exception e) {
         e.printStackTrace();
+        out.print("数据库查询错误: " + e.getMessage()); // 添加错误输出
+    } finally {
+        JDBCUtil.close(conn, ps, rs);
     }
 %>
 <!DOCTYPE html>
@@ -35,6 +42,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* 样式与之前页面保持一致 */
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
@@ -103,7 +111,7 @@
             <tr>
                 <td><%= row.get("id") %></td>
                 <td><%= row.get("username") %></td>
-                <td><%= row.get("realname") %></td>
+                <td><%= row.get("realname") != null ? row.get("realname") : "N/A" %></td> <%-- 处理realname可能为null的情况 --%>
                 <td><%= row.get("total_hours") %></td>
             </tr>
         <% } %>
