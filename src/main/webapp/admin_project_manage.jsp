@@ -89,6 +89,53 @@
     <div class="section-title">
         <i class="fas fa-tasks me-2"></i>活动管理
     </div>
+    <div class="mb-3 text-end">
+        <!-- 创建活动按钮，点击弹窗 -->
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#createProjectModal">
+            <i class="fas fa-plus me-1"></i>创建活动
+        </button>
+    </div>
+    <!-- 创建活动弹窗 -->
+    <div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content" action="admin_project_create.jsp" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createProjectModalLabel">创建新活动</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">活动主题</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">活动描述</label>
+              <textarea class="form-control" name="description" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">活动积分</label>
+              <input type="number" class="form-control" name="points" min="0" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">活动组织</label>
+              <input type="text" class="form-control" name="publisher" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">开始时间</label>
+              <input type="datetime-local" class="form-control" name="start_time" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">结束时间</label>
+              <input type="datetime-local" class="form-control" name="end_time" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-warning">创建</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <table class="table table-hover align-middle">
         <thead>
             <tr>
