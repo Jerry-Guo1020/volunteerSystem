@@ -159,17 +159,35 @@
                 <td>
                     <% if ((int)project.get("status") == 1) { %>
                         <span class="badge bg-success">已审批</span>
+                    <% } else if ((int)project.get("status") == 2) { %>
+                        <span class="badge bg-secondary">已完结</span>
                     <% } else { %>
                         <span class="badge bg-warning text-dark">待审批</span>
                     <% } %>
                 </td>
                 <td>
-                    <form action="admin_project_action.jsp" method="post" style="display:inline;">
-                        <input type="hidden" name="projectId" value="<%= project.get("id") %>">
-                        <% if ((int)project.get("status") == 0) { %>
+                    <% if ((int)project.get("status") == 0) { %>
+                        <!-- 审批通过按钮表单 -->
+                        <form action="admin_project_action" method="post" style="display:inline;">
+                            <input type="hidden" name="projectId" value="<%= project.get("id") %>">
                             <button name="action" value="approve" class="action-btn approve" type="submit">审批</button>
-                        <% } %>
+                        </form>
+                    <% } %>
+                    <% if ((int)project.get("status") == 1) { %>
+                        <!-- 完结活动按钮表单 -->
+                        <form action="admin_project_action" method="post" style="display:inline;">
+                            <input type="hidden" name="projectId" value="<%= project.get("id") %>">
+                            <button name="action" value="complete" class="action-btn approve" type="submit" onclick="return confirm('确定要完结此活动并为参与者添加积分吗？');">完结活动</button>
+                        </form>
+                    <% } %>
+                    <!-- 修改按钮表单 -->
+                    <form action="admin_project_action" method="post" style="display:inline;">
+                        <input type="hidden" name="projectId" value="<%= project.get("id") %>">
                         <button name="action" value="edit" class="action-btn edit" type="submit">修改</button>
+                    </form>
+                    <!-- 删除按钮表单 -->
+                    <form action="admin_project_action" method="post" style="display:inline;">
+                        <input type="hidden" name="projectId" value="<%= project.get("id") %>">
                         <button name="action" value="delete" class="action-btn delete" type="submit" onclick="return confirm('确定要删除该活动吗？')">删除</button>
                     </form>
                 </td>
@@ -181,5 +199,7 @@
         <a href="admin_dashboard.jsp" class="btn btn-outline-warning"><i class="fas fa-arrow-left me-1"></i>返回后台首页</a>
     </div>
 </div>
+<!-- 补充Bootstrap JS依赖，确保弹窗功能可用 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
