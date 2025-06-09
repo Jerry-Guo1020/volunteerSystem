@@ -64,27 +64,25 @@ public class AdminProjectActionServlet extends HttpServlet {
                 response.sendRedirect("admin_project_manage.jsp?message=Project deleted successfully");
 
             } else if ("complete".equals(action)) {
-                // 完结活动并添加积分
-                // 1. 获取项目积分
+                // 完结活动并添加积分和志愿时长
                 int points = 0;
-                ps = conn.prepareStatement("SELECT points FROM project WHERE id = ?");
+                double durationHours = 0;
+                ps = conn.prepareStatement("SELECT points, duration_hours FROM project WHERE id = ?");
                 ps.setInt(1, projectId);
                 rs = ps.executeQuery();
                 if (rs.next()) {
                     points = rs.getInt("points");
+                    durationHours = rs.getDouble("duration_hours");
                 }
-                JDBCUtil.close(null, ps, rs); // 关闭之前的ps和rs
+                JDBCUtil.close(null, ps, rs);
 
                 if (points > 0) {
-                    // 2. 更新报名记录为已完成，并获取所有参与用户的ID
-                    // 注意：这里假设所有报名的用户都完成了活动并获得积分。
-                    // 如果需要更精细的控制（例如只有部分用户完成），则需要更复杂的逻辑，
-                    // 可能需要在signup表中添加一个字段来标记用户是否实际完成。
-                    // 当前实现是：只要报名了且项目被管理员标记为完结，就认为完成并给积分。
-                    ps = conn.prepareStatement("UPDATE signup SET completed = TRUE WHERE project_id = ?");
-                    ps.setInt(1, projectId);
+                    // 2. 更新报名记录为已完成，并写入志愿时长
+                    ps = conn.prepareStatement("UPDATE signup SET completed = TRUE, hours = ? WHERE project_id = ?");
+                    ps.setDouble(1, durationHours);
+                    ps.setInt(2, projectId);
                     ps.executeUpdate();
-                    JDBCUtil.close(null, ps, null); // 关闭ps
+                    JDBCUtil.close(null, ps, null);
 
                     // 3. 获取所有报名该项目的用户ID
                     List<Integer> userIds = new ArrayList<>();
@@ -94,20 +92,19 @@ public class AdminProjectActionServlet extends HttpServlet {
                     while(rs.next()) {
                         userIds.add(rs.getInt("user_id"));
                     }
-                    JDBCUtil.close(null, ps, rs); // 关闭ps和rs
+                    JDBCUtil.close(null, ps, rs);
 
                     // 4. 为每个用户增加积分
                     if (!userIds.isEmpty()) {
-                         // 使用批量更新提高效率
                         ps = conn.prepareStatement("UPDATE user SET points = points + ? WHERE id = ?");
                         for (Integer userId : userIds) {
                             ps.setInt(1, points);
                             ps.setInt(2, userId);
-                            ps.addBatch(); // 添加到批量处理
+                            ps.addBatch();
                         }
-                        ps.executeBatch(); // 执行批量更新
+                        ps.executeBatch();
                     }
-                    JDBCUtil.close(null, ps, null); // 关闭ps
+                    JDBCUtil.close(null, ps, null);
                 }
 
                 // 5. 更新项目状态为已完结 (例如状态 2)
@@ -115,8 +112,8 @@ public class AdminProjectActionServlet extends HttpServlet {
                 ps.setInt(1, projectId);
                 ps.executeUpdate();
 
-                conn.commit(); // 提交事务
-                response.sendRedirect("admin_project_manage.jsp?message=Project completed and points awarded");
+                conn.commit();
+                response.sendRedirect("admin_project_manage.jsp?message=Project completed and points/hours awarded");
 
             } else {
                 // Handle error: unknown action

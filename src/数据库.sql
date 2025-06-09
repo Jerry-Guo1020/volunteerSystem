@@ -211,7 +211,8 @@ CREATE TABLE IF NOT EXISTS project (
     -- 项目开始时间
                                        end_time DATETIME,
                                        category VARCHAR(50), -- 项目类别 (例如：环保, 教育, 社区服务)
-                                       status INT DEFAULT 0 -- 项目状态 (例如：0-待审批, 1-已审批)
+                                       status INT DEFAULT 0, -- 项目状态 (例如：0-待审批, 1-已审批)
+                                       duration_hours DOUBLE DEFAULT 0 -- 新增：活动时长（小时）
 );
 
 
