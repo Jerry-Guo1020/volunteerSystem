@@ -31,7 +31,7 @@
         rs.close();
         ps.close();
 
-        ps = conn.prepareStatement("SELECT id, name, description, points_cost FROM mall_items");
+        ps = conn.prepareStatement("SELECT id, name, description, points_cost, image_url FROM mall_items");
         rs = ps.executeQuery();
         while (rs.next()) {
             Map<String, Object> item = new HashMap<>();
@@ -39,6 +39,7 @@
             item.put("name", rs.getString("name"));
             item.put("description", rs.getString("description"));
             item.put("points_cost", rs.getInt("points_cost"));
+            item.put("image_url", rs.getString("image_url")); // 加入图片路径
             allItems.add(item);
         }
 
@@ -260,7 +261,7 @@
                 <% for (Map<String, Object> item : allItems) { %>
                     <div class="col-md-4 mb-4">
                         <div class="card item-card">
-                            <img src="<%= item.get("image_url") != null ? item.get("image_url") : "https://via.placeholder.com/300x180?text=Item+Image" %>" class="card-img-top" alt="商品图片">
+                            <img src="<%= item.get("image_url") %>" class="card-img-top" alt="商品图片">
                             <div class="card-body">
                                 <h5 class="card-title"><%= item.get("name") %></h5>
                                 <p class="card-text"><%= item.get("description") %></p>

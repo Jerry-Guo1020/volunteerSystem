@@ -20,7 +20,7 @@
             int points = Integer.parseInt(pointsStr);
 
             // 1. 更新报名状态为已完成
-            PreparedStatement ps1 = conn.prepareStatement("UPDATE signup SET status=1 WHERE id=?");
+            PreparedStatement ps1 = conn.prepareStatement("UPDATE signup SET status =1 WHERE id=?");
             ps1.setInt(1, signupId);
             int updated = ps1.executeUpdate();
 

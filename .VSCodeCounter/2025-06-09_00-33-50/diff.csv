@@ -1,0 +1,17 @@
+"filename", "language", "Markdown", "MS SQL", "HTML", "Java", "comment", "blank", "total"
+"d:\jsp\期末作业\VolunteerSystem\README.md", "Markdown", 359, 0, 0, 0, 0, 0, 359
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AddProjectServlet.java", "Java", 0, 0, 0, 2, 0, 0, 2
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminProjectActionServlet.java", "Java", 0, 0, 0, 107, 16, 18, 141
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminProjectManageServlet.java", "Java", 0, 0, 0, 56, 6, 10, 72
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\JDBCUtil.java", "Java", 0, 0, 0, 23, 20, 3, 46
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\RegisterServlet.java", "Java", 0, 0, 0, 3, -2, 2, 3
+"d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\SignupServlet.java", "Java", 0, 0, 0, 2, 0, 0, 2
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\add_project.jsp", "HTML", 0, 0, -41, 0, 0, -2, -43
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_manage.jsp", "HTML", 0, 0, 15, 0, 5, 0, 20
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_report.jsp", "HTML", 0, 0, 8, 0, 0, 0, 8
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_manage.jsp", "HTML", 0, 0, 20, 0, 1, 0, 21
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\register.jsp", "HTML", 0, 0, 7, 0, 0, 0, 7
+"d:\jsp\期末作业\VolunteerSystem\src\main\webapp\signup.jsp", "HTML", 0, 0, -40, 0, 0, -2, -42
+"d:\jsp\期末作业\VolunteerSystem\src\数据库.sql", "MS SQL", 0, 321, 0, 0, 46, 23, 390
+"d:\jsp\期末作业\VolunteerSystem\个人的一些想法.md", "Markdown", 17, 0, 0, 0, 0, 5, 22
+"Total", "-", 376, 321, -31, 193, 92, 57, 1008

@@ -1,0 +1,51 @@
+Date : 2025-06-09 00:33:50
+Directory : d:\jsp\期末作业\VolunteerSystem
+Total : 15 files,  859 codes, 92 comments, 57 blanks, all 1008 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Markdown |          2 |        376 |          0 |          5 |        381 |
+| MS SQL   |          1 |        321 |         46 |         23 |        390 |
+| Java     |          6 |        193 |         40 |         33 |        266 |
+| HTML     |          6 |        -31 |          6 |         -4 |        -29 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |         15 |        859 |         92 |         57 |      1,008 |
+| . (Files)                                                                                            |          2 |        376 |          0 |          5 |        381 |
+| src                                                                                                  |         13 |        483 |         92 |         52 |        627 |
+| src (Files)                                                                                          |          1 |        321 |         46 |         23 |        390 |
+| src\main                                                                                             |         12 |        162 |         46 |         29 |        237 |
+| src\main\java                                                                                        |          6 |        193 |         40 |         33 |        266 |
+| src\main\java\com                                                                                    |          6 |        193 |         40 |         33 |        266 |
+| src\main\java\com\example                                                                            |          6 |        193 |         40 |         33 |        266 |
+| src\main\java\com\example\volunteersystem                                                            |          6 |        193 |         40 |         33 |        266 |
+| src\main\webapp                                                                                      |          6 |        -31 |          6 |         -4 |        -29 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                             | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\jsp\期末作业\VolunteerSystem\README.md                                                                | Markdown |        359 |          0 |          0 |        359 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AddProjectServlet.java         | Java     |          2 |          0 |          0 |          2 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminProjectActionServlet.java | Java     |        107 |         16 |         18 |        141 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\AdminProjectManageServlet.java | Java     |         56 |          6 |         10 |         72 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\JDBCUtil.java                  | Java     |         23 |         20 |          3 |         46 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\RegisterServlet.java           | Java     |          3 |         -2 |          2 |          3 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\java\com\example\volunteersystem\SignupServlet.java             | Java     |          2 |          0 |          0 |          2 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\add_project.jsp                                          | HTML     |        -41 |          0 |         -2 |        -43 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_project_manage.jsp                                 | HTML     |         15 |          5 |          0 |         20 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_report.jsp                                         | HTML     |          8 |          0 |          0 |          8 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\admin_user_manage.jsp                                    | HTML     |         20 |          1 |          0 |         21 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\register.jsp                                             | HTML     |          7 |          0 |          0 |          7 |
+| d:\jsp\期末作业\VolunteerSystem\src\main\webapp\signup.jsp                                               | HTML     |        -40 |          0 |         -2 |        -42 |
+| d:\jsp\期末作业\VolunteerSystem\src\数据库.sql                                                              | MS SQL   |        321 |         46 |         23 |        390 |
+| d:\jsp\期末作业\VolunteerSystem\个人的一些想法.md                                                               | Markdown |         17 |          0 |          5 |         22 |
+| Total                                                                                                |          |        859 |         92 |         57 |      1,008 |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
