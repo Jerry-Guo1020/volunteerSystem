@@ -24,6 +24,7 @@
 </head>
 <body>
     <!-- 这个页面主要通过后端代码进行重定向，页面内容通常不会显示 -->
+    <link rel="icon" href="image/logo.png" type="image/x-icon">
     <p>正在退出登录...</p>
 </body>
 </html>

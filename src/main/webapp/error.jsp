@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>错误页面</title>
+    <link rel="icon" href="image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="bg-light">

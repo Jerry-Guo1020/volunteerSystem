@@ -33,6 +33,6 @@
 
     <!-- 添加欢迎文件列表 -->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>Home.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
