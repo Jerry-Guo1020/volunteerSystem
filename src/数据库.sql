@@ -293,56 +293,56 @@ VALUES (
            '精美笔记本',
            '记录生活点滴，学习工作好帮手。',
            180,
-           'https://via.placeholder.com/150x150?text=Notebook',
+           '/image/notebook.jpg/',
            FALSE
        ),
        (
            '便携水杯',
            '健康饮水，随身携带。',
            220,
-           'https://via.placeholder.com/150x150?text=Water+Bottle',
+           '/image/water.jpg/',
            FALSE
        ),
        (
            '创意书签',
            '让阅读更有趣。',
            80,
-           'https://via.placeholder.com/150x150?text=Bookmark',
+           '/image/bookmark.jpg/',
            FALSE
        ),
        (
            '多功能笔',
            '一支笔满足多种书写需求。',
            120,
-           'https://via.placeholder.com/150x150?text=Pen',
+           '/image/pen.jpg/',
            FALSE
        ),
        (
            '迷你手电筒',
            '小巧实用，应急照明。',
            150,
-           'https://via.placeholder.com/150x150?text=Flashlight',
+           '/image/Flashlight.jpg/',
            FALSE
        ),
        (
            '卡通钥匙扣',
            '可爱造型，装饰你的钥匙。',
            50,
-           'https://via.placeholder.com/150x150?text=Keychain',
+           '/image/Keychain.jpg/',
            FALSE
        ),
        (
            '手机支架',
            '解放双手，追剧更轻松。',
            100,
-           'https://via.placeholder.com/150x150?text=Phone+Stand',
+           '/image/111.jpg/',
            FALSE
        ),
        (
            '数据线收纳器',
            '告别杂乱，保持桌面整洁。',
            70,
-           'https://via.placeholder.com/150x150?text=Cable+Organizer',
+           '/image/222.jpg/',
            FALSE
        );
 
