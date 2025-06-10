@@ -427,7 +427,7 @@
             <div class="quickstart-desc">
                 访问系统首页了解平台功能，注册新用户账户或使用管理员账户登录，浏览志愿服务项目并参与感兴趣的内容。
             </div>
-            <a href="Home.jsp" class="quickstart-btn">进入系统主页</a>
+            <a href="index.jsp" class="quickstart-btn">进入系统主页</a>
         </div>
 
         <div class="footer">
