@@ -39,7 +39,7 @@
             item.put("name", rs.getString("name"));
             item.put("description", rs.getString("description"));
             item.put("points_cost", rs.getInt("points_cost"));
-            item.put("image_url", rs.getString("image_url")); // 加入图片路径
+            item.put("image_url", rs.getString("image_url").replaceAll("/$", "")); // 移除路径末尾的斜杠
             allItems.add(item);
         }
 

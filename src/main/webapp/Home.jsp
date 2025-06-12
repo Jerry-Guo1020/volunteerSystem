@@ -110,7 +110,7 @@
         }
         .feature-desc {
             font-size: 1.05rem;
-            color: #666;
+            color: black;
             text-align: center;
         }
 
@@ -302,7 +302,7 @@
 
         /* --- 现有样式 --- */
         .footer {
-            color: #bdbdbd;
+            color: black;
             font-size: 0.95rem;
             padding: 32px 0 12px 0;
             text-align: center;

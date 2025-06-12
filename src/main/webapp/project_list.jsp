@@ -178,7 +178,10 @@
     </style>
 </head>
 <body>
-<jsp:include page="common/navbar.jsp" />
+    <%-- ... existing content before navbar ... --%>
+
+    <%-- {{ edit_1 }} 使用静态包含引入 navbar.jsp --%>
+    <%@ include file="/common/navbar.jsp" %>
 
 <div class="main-container">
     <h2 class="section-title">志愿服务项目列表</h2>
